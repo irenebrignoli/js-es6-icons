@@ -1,5 +1,6 @@
 
 
+
 const allCards = [
 	{
 		name: 'cat',
@@ -115,14 +116,23 @@ const allCards = [
 	}
 ];
 
-/*
-Milestone 1
-Partendo dalla struttura dati fornita, visualizzare in pagina un box per ogni icona, in cui è presente il nome dell’icona e l’icona stessa.
-Milestone 2
-Ciascuna icona ha una proprietà “color”: utilizzare questa proprietà per visualizzare le icone del colore corrispondente.
-Milestone 3
-Aggiungere alla pagina una select in cui le options corrispondono ai vari tipi di icone (animal, vegetable, user). Quando l’utente seleziona un tipo dalla select, visualizzare solamente le icone corrispondenti.
-*/
+//creo i nuovi colori random
+
+let newAnimalColor = `#${generateColorElement()}${generateColorElement()}${generateColorElement()}${generateColorElement()}${generateColorElement()}${generateColorElement()}`;
+
+console.log('newAnimalColor: ' + newAnimalColor);
+
+let newVegetableColor = `#${generateColorElement()}${generateColorElement()}${generateColorElement()}${generateColorElement()}${generateColorElement()}${generateColorElement()}`;
+
+console.log('newVegetableColor: ' + newVegetableColor);
+
+
+let newUserColor = `#${generateColorElement()}${generateColorElement()}${generateColorElement()}${generateColorElement()}${generateColorElement()}${generateColorElement()}`;
+
+console.log('newUserColor: ' + newUserColor);
+
+
+
 
 const cardsDom = document.getElementById('card-container');
 const selectDom = document.getElementById('selector');
@@ -137,8 +147,6 @@ const animals = allCards.filter(object =>{
   }
 });
 
-console.log(animals);
-
 const vegetables = allCards.filter(object =>{
   if(object.type == 'vegetable'){
     return true;
@@ -147,8 +155,6 @@ const vegetables = allCards.filter(object =>{
   }
 });
 
-console.log(vegetables);
-
 const users = allCards.filter(object =>{
   if(object.type == 'user'){
     return true;
@@ -156,8 +162,6 @@ const users = allCards.filter(object =>{
     return false;
   }
 });
-
-console.log(users);
 
 createCard(allCards);
 
@@ -182,9 +186,15 @@ selectDom.addEventListener('change',
 
 
 
+
+
+
+
+
+
 //FUNZIONI  
 
-
+//genera card
 function createCard(array){
 
   cardsDom.innerHTML = "";
@@ -200,23 +210,37 @@ function createCard(array){
   
   });
 
-  addColor(array);
+	addColor(array);
+
 }
 
-
+//assegna colore 
 function addColor(array){
 
   let iconDom = document.getElementsByClassName('icon');
 
   array.forEach((object,index) =>{
 
-  if(object.color == 'orange'){
-    iconDom[index].classList.add('orange');
-  } else if(object.color == 'green'){
-    iconDom[index].classList.add('green');
-  } else if(object.color == 'blue'){
-    iconDom[index].classList.add('blue');
+  if(object.type == 'animal'){
+    iconDom[index].style.color = newAnimalColor;
+  } else if(object.type == 'vegetable'){
+    iconDom[index].style.color = newVegetableColor;
+  } else if(object.type == 'user'){
+    iconDom[index].style.color = newUserColor;
   }
   
   });
 }
+
+//scegli casualmente elemento array
+function generateColorElement(){
+
+	const array = ['A','B','C','D','E','F', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+
+	let randomElement = Math.floor(Math.random() * array.length);
+	return array[randomElement];
+
+}
+
+
+
