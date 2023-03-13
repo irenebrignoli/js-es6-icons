@@ -130,9 +130,31 @@ cards.forEach((object) =>{
 
   cardsDom.innerHTML += ` <div class="card">
                             <div>
-                              <i class="fa-solid ${object.prefix}${object.name}"></i>
+                              <i class="icon fa-solid ${object.prefix}${object.name}"></i>
                             </div>
                             <h3>${object.name}</h3>
                           </div>`;
 
 });
+
+
+let iconDom = document.getElementsByClassName('icon');
+
+cards.forEach((object,index) =>{
+
+  if(object.color == 'orange'){
+    iconDom[index].classList.add('orange');
+  } else if(object.color == 'green'){
+    iconDom[index].classList.add('green');
+  } else if(object.color == 'blue'){
+    iconDom[index].classList.add('blue');
+  }
+  
+});
+
+
+
+
+
+
+
