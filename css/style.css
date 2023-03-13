@@ -54,7 +54,7 @@ main{
 
 #card-container{
   height: 100%;
-  margin-top: 30px;
+  margin-top: 50px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -75,7 +75,7 @@ main{
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
-.card i{
+.card .icon{
   font-size: 27px;
 }
 
