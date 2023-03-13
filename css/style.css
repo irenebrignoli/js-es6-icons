@@ -3,3 +3,46 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+:root{
+  --main-background: #dddddd;
+  --primary-color: #29b1dd;
+}
+
+body{
+  font-family: sans-serif;
+}
+
+.container{
+  max-width: 1000px;
+  margin: auto;
+}
+
+header{
+  height: 70px;
+}
+
+h1{
+  color: var(--primary-color);
+  line-height: 70px;
+}
+
+main{
+  background-color: var(--main-background);
+  height: calc(100vh - 70px);
+}
+
+#filter{
+  background-color: var(--primary-color);
+  text-align: center;
+  height: 50px;
+}
+
+#filter label{
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 50px;
+}
+
